@@ -322,15 +322,21 @@ multithreaded program.]
 
 Give TWO examples where synchronization is critical:
 
-**Example 1**: 
+**Example 1**:  Banking systems – When multiple tellers update the same account balance, locks
+prevent lost deposits or withdrawals.
 
-**Example 2**: 
+**Example 2**:  Print spooler – A semaphore with a limit equal to the number of printers controls
+access to physical printers.
 
 ---
 
 ### How I would explain synchronization to others:
 
-[Explain to someone who just finished Assignment 1 - use simple terms and analogies]
+[“Imagine a shared whiteboard where many students want to write. If two write at the
+same time, their notes become unreadable. A mutex lock is like giving the marker to
+only one student at a time. A semaphore is like having a few markers – it lets a limited
+number of students write together. Without these rules, the whiteboard would be a
+mess. Thatʼs exactly what synchronisation does for shared data in a program.”]
 
 ---
 
