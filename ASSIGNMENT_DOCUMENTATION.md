@@ -108,7 +108,12 @@ se the counters are independent.
 
 **Your Answer**:
 
-[Your answer here - 4-6 sentences with code examples]
+[**First race condition** – `contextSwitchCount++` (and the other counters).  
+Shared resource: the integer counters.  
+Problem: `++` is not atomic; two threads can read the same value, increment, and write 
+back, causing a lost update.  
+Incorrect behaviour: The final counter value is less than the actual number of incremen
+ts.]
 
 ---
 
@@ -117,7 +122,12 @@ se the counters are independent.
 
 **Your Answer**:
 
-[Your answer here - explain your implementation choices]
+[ **ReentrantLock** is a mutual exclusion lock (binary). It guarantees that only one thre
+ad holds the lock at a time. I used it for the counters and the log because those resourc
+es require exclusive access.- **Semaphore** maintains a set of permits. A binary semaphore (permits = 1) acts like a 
+lock, but semaphores can also allow N concurrent accesses (e.g., a connection pool). I us
+ed a `Semaphore(1)` to limit CPU execution – only one process can run at any moment, exac
+tly matching a single-core CPU.]
 
 ---
 
