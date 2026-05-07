@@ -263,24 +263,27 @@ race conditions are eliminated.)
 ---
 
 ### Test 2: Exception Testing
-**What I tested**: Checking for ConcurrentModificationException
+**What I tested**: Added a loop that ran the program 20 times.
 
 **Testing procedure**: 
 
-**Results**: 
+**Results**:  No ConcurrentModificationException or any other exception occurred.
 
-**What this proves**: 
+**What this proves**:  The logLock successfully serialises access to the ArrayList ,
+making it thread‑safe
 
 ---
 
 ### Test 3: Correctness Verification
 **What I tested**: Verifying correct final values (total burst time, context switches, etc.)
 
-**Expected values**: 
+**Expected values**: completedProcessCount should equal number of processes created; total
+waiting time should be consistent with per‑process waiting times.
 
-**Actual values**: 
+**Actual values**:  All values matched the manual calculation (checked with print statements)
 
-**Analysis**: 
+**Analysis**: The synchronisation does not change the logical behaviour – it only ensures
+correctness under concurrency.
 
 ---
 
