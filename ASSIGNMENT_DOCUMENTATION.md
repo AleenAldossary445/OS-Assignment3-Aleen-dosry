@@ -44,16 +44,18 @@ Document your development process with **minimum 3 entries** showing progression
 
 ---
 
-### Entry 2 - [Date, Time]
-**What I implemented**: 
+### Entry 2 - [may 5, 10:00]
+**What I implemented**: Task 1 – fine-grained ReentrantLocks for the three counters. 
 
-**Challenges encountered**: 
+**Challenges encountered**:  Understanding why fine-grained locking is better than a single 
+lock.
 
-**How I solved it**: 
+**How I solved it**:  Read about lock granularity; decided to use three separate locks becau
+se the counters are independent.
 
-**Testing approach**: 
+**Testing approach**:  Ran the program 10 times; counters now give the same values each run.
 
-**Time spent**: 
+**Time spent**: 1h
 
 ---
 
