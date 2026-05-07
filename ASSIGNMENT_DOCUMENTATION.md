@@ -136,7 +136,14 @@ tly matching a single-core CPU.]
 
 **Your Answer**:
 
-[Your answer here - reference try-finally blocks, lock ordering, etc.]
+[ **Deadlock** occurs when two or more threads wait forever for each other’s locked resou
+rces.- Prevention techniques I used:
+1. **Lock ordering** – I never acquire more than one lock at a time, so cyclic wait can
+not happen.
+2. **try-finally blocks** – Every `lock()` or `acquire()` is followed by a `finally` bl
+ock that releases the resource. This guarantees release even if an exception occurs, prev
+enting resource leaks.- Additionally, the semaphore is acquired at the very beginning of the critical section a
+nd released immediately after, so there is no nested locking.]
 
 ---
 
@@ -149,7 +156,15 @@ tly matching a single-core CPU.]
 
 **Your Answer**:
 
-[Your answer here - explain coarse-grained vs fine-grained locking, independence of counters, concurrency implications. Show understanding of when to use each approach. 5-8 sentences expected.]
+[I chose **fine-grained locking** – three separate `ReentrantLock`s, one per counter (`c
+ontextSwitchLock`, `completedProcessLock`, `waitingTimeLock`).- **Why:** The three counters are completely independent (updating one does not depend on 
+the others). With a single coarse-grained lock, threads updating different counters would 
+still block each other, creating unnecessary contention. Fine-grained locking allows true 
+parallelism: while one thread increments `contextSwitchCount`, another can simultaneously 
+increment `completedProcessCount`.- **Trade-offs:** Fine-grained requires more code and careful reasoning, but for independ
+ent resources the concurrency gain is worth it. Coarse-grained is simpler but reduces thr
+oughput.- Because the counters are independent, fine-grained locking provides **better concurrenc
+y** – it exactly follows the principle: protect each shared resource with its own lock.]
 
 ---
 
