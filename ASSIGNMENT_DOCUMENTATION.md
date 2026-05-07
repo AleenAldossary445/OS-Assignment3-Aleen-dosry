@@ -342,15 +342,16 @@ mess. Thatʼs exactly what synchronisation does for shared data in a program.”
 
 ## Part 6: GitHub Repository Information
 
-**Repository URL**: 
+**Repository URL**: https://github.com/AleenAldossary445/OS-Assignment3-Aleen-dosry
 
-**Number of commits**: 
+**Number of commits**:Number of commits: 6 (all meaningful, spread over 5 days)
+ 
 
 **Commit messages**: 
-1. 
-2. 
-3. 
-4. 
+1. Set my student ID: 445052364
+2. Task 1 (445052364): Added fine-grained ReentrantLock for counters
+3.Task 2 (445052364): Added ReentrantLock for execution log 
+4. Task 3 (445052364): Implemented Semaphore for CPU control
 
 ---
 
