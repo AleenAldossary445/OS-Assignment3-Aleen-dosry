@@ -59,16 +59,16 @@ se the counters are independent.
 
 ---
 
-### Entry 3 - [Date, Time]
-**What I implemented**: 
+### Entry 3 - [may 6, 1:30]
+**What I implemented**: Task 2 – ReentrantLock for the execution log (ArrayList). 
 
-**Challenges encountered**: 
+**Challenges encountered**:  Initially forgot to unlock in finally block.
 
-**How I solved it**: 
+**How I solved it**:  Corrected to lock/unlock inside try-finally.
 
-**Testing approach**: 
+**Testing approach**:  Added heavy logging; never saw ConcurrentModificationException.
 
-**Time spent**: 
+**Time spent**:  45 min
 
 ---
 
