@@ -288,13 +288,15 @@ correctness under concurrency.
 ---
 
 ### Test 4: Different Scenarios
-**Scenario tested**: [e.g., different time quantum, more processes, etc.]
+**Scenario tested**: [Changed Semaphore(1) to Semaphore(2) temporarily]
 
-**Purpose**: 
+**Purpose**: Observe effect of allowing two concurrent processes.
 
-**Results**: 
+**Results**:  With 2 permits, execution overlapped (interleaving in output). Still no race
+conditions because counters remained protected. 
 
-**What I learned**: 
+**What I learned**:  Semaphores are extremely flexible – they control the degree of
+concurrency without changing the core logic
 
 ---
 
@@ -302,7 +304,17 @@ correctness under concurrency.
 
 ### What I learned about synchronization:
 
-[6-8 sentences about key concepts, challenges, insights]
+[Race conditions are subtle: the code can run correctly many times and then suddenly
+fail. Synchronisation makes concurrent programs predictable.
+Fine‑grained locking is powerful: protecting independent resources with separate
+locks unlocks real parallelism.
+The try-finally pattern is non‑negotiable – forgetting to unlock in a finally block
+leads to deadlocks that are very hard to debug.
+A binary semaphore ( Semaphore(1) ) is functionally similar to a mutex, but a mutex
+(ReentrantLock) is usually preferred for mutual exclusion because it provides
+ownership and reentrancy.
+Synchronisation adds overhead, but the safety it buys is essential for any
+multithreaded program.]
 
 ---
 
