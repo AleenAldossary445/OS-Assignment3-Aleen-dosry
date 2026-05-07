@@ -357,16 +357,18 @@ mess. Thatʼs exactly what synchronisation does for shared data in a program.”
 
 ## Summary
 
-**Total time spent on assignment**: 
+**Total time spent on assignment**: Total time spent: ~5.5 hours
 
 **Key takeaways**: 
-1. 
-2. 
-3. 
+1.  Fine‑grained locking improves performance for independent resources.
+2.  try-finally is the only safe way to release locks.
+3.  A semaphore can control both mutual exclusion and resource limits
 
-**Most challenging aspect**: 
+**Most challenging aspect**:  Deciding on lock granularity and proving that separate locks
+are safe (no deadlock because locks are never nested)
 
-**What I'm most proud of**: 
+**What I'm most proud of**: The final program runs deterministically, with no exceptions,
+and the code clearly shows why each synchronisation mechanism is used.
 
 ---
 
