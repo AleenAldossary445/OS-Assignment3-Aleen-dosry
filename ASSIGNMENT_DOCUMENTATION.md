@@ -215,18 +215,24 @@ try { executionLog.add(message); } finally { logLock.unlock(); }
 
 ### Critical Section #3: CPU Semaphore
 
-**Purpose of semaphore**: 
+**Purpose of semaphore**: Simulate a single‑core CPU – only one process can execute at a time.
 
-**Number of permits and why**: 
+**Number of permits and why**: : 1 (binary semaphore)
 
-**Where implemented**: 
+**Where implemented**: Process.run() and Process.runToCompletion()
 
-**Code snippet**:
+**Code snippet**: (inside run() ):
 ```java
-// Paste your implementation here
+// SharedResources.cpuSemaphore.acquire();
+try {
+// ... execution code ...
+} finally {
+SharedResources.cpuSemaphore.release();
+}
 ```
 
-**Effect on program behavior**: 
+**Effect on program behavior**:  Guarantees that even though many threads are ready, only one proceeds into
+the CPU at any moment – exactly like a real uniprocessor system.
 
 ---
 
