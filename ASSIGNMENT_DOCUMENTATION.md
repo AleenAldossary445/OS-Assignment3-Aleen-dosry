@@ -193,18 +193,23 @@ Each counter is independent, so separate locks maximise concurrency.
 
 ### Critical Section #2: Execution Log
 
-**What resource**: 
+**What resource**: List<String> executionLog
 
-**Why it needs protection**: 
+**Why it needs protection**: ArrayList is not thread‑safe; concurrent add() calls cause
+corruption or exceptions.
 
-**Synchronization mechanism used**: 
+
+**Synchronization mechanism used**: ReentrantLock logLock
 
 **Code snippet**:
 ```java
-// Paste your implementation here
+// public static void logExecution(String message) {
+logLock.lock();
+try { executionLog.add(message); } finally { logLock.unlock(); }
+}
 ```
 
-**Justification**: 
+**Justification**:  Exclusive access is required to preserve the logʼs integrity.
 
 ---
 
